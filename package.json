@@ -17,7 +17,7 @@
     "express": "^4.16.3",
     "form-data": "^2.3.2",
     "mongoose": "^5.2.4",
-    "node-sass": "^4.9.0",
+    "node-sass": "^4.9.2",
     "nodemon": "^1.18.2",
     "normalize.css": "^8.0.0",
     "react": "^16.3.2",
@@ -26,7 +26,7 @@
     "react-router-dom": "^4.2.2",
     "redux": "^4.0.0",
     "redux-form": "^7.4.2",
-    "sass-loader": "^7.0.1",
+    "sass-loader": "^7.0.3",
     "webpack-dev-server": "^3.1.4"
   },
   "devDependencies": {},
