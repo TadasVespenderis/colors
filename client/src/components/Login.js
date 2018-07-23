@@ -52,7 +52,7 @@ class Login extends React.Component{
     render(){
 
         const users = this.props.users.map ((item, i )=>{
-            return <div key={i}>{item.name}  {item.city}  {item.email}</div>
+            return <div key={i}>{item.name}    {item.city}     {item.email}</div>
         });
 
         return(
@@ -82,7 +82,7 @@ class Login extends React.Component{
                         <button type="submit" onClick={()=>{this.props.addPerson(this.state.tempItem);this.clearInput();this.addInfo(this.state.tempItem)}}>Add</button>
 
                 </div>
-                <div>
+                <div className="login-fetch">
                     {users}
                 </div>
             </div>
