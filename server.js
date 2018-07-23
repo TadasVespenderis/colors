@@ -16,6 +16,7 @@ mongoose.connection
     .on ('error', (e)=>console.log(e));
 
 app.use(express.static(__dirname+'/public'));
+app.use(express.static(__dirname+'/client/build'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 
