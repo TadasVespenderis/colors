@@ -1,0 +1,32 @@
+.home {
+  margin-top: 170px;
+
+  .color {
+    width: 5%;
+    text-align: -webkit-center;
+    margin: 0 5px;
+    display: inline-block;
+    height: 250px;
+    border-radius: 5px;
+  }
+  .color-text-show {
+    width: 25%;
+    text-align: justify;
+    margin: 0 2px;
+    display: inline-block;
+    height: 250px;
+    overflow: hidden;
+    transition: width 1.5s;
+    color: whitesmoke;
+    border-radius: 8px;
+    font-size: 15px;
+  }
+  p {
+    padding: 60px 10px;
+  }
+  .colorOn {
+    position: absolute;
+    top: 147px;
+    font-size: 18px;
+  }
+}

@@ -1,0 +1,19 @@
+.home {
+  margin-top: 170px;
+    .h1{
+      margin-bottom: 35px;
+    }
+  .colorQuiz {
+    width: 6%;
+    text-align: -webkit-center;
+    margin: 0 5px;
+    display: inline-block;
+    height: 92px;
+    border-radius: 175px;
+  }
+  .colorOnQuiz {
+    position: absolute;
+    top: 215px;
+    font-size: 18px;
+  }
+}

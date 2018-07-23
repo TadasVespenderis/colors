@@ -1,0 +1,31 @@
+.test {
+  width: 35%;
+  margin-left: 518px;
+  margin-top: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  .div {
+    position: relative;
+    border: 1px solid white;
+    width: 50px;
+    height: 50px;
+  }
+  .clicked{
+    position: relative;
+    border: 4px solid black;
+    width: 50px;
+    height: 50px;
+  }
+}
+  .h1{
+    //margin-right: 600px;
+    text-align: center;
+    margin-top: 100px;
+  }
+  .winner{
+    margin-top: 20px;
+    font-size: 115px;
+    h6{
+      font-size: 50px;
+    }
+  }
