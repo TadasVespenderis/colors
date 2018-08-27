@@ -7,6 +7,7 @@ const FormData = require('form-data');
 class Login extends React.Component{
 
     state ={
+        users: [],
         message: '',
         tempItem: {name: '', city: '', email: ''}
     };
@@ -15,6 +16,13 @@ class Login extends React.Component{
         axios.get('/api/login').then((response) => {
             this.setState({
                 message: response.data.message,
+            })
+        })
+
+        axios.get('/api/users').then((res)=>{
+            console.log(res);
+            this.setState({
+                users: res.data
             })
         })
     };
@@ -29,30 +37,21 @@ class Login extends React.Component{
 
         addInfo = (values) => {
             console.log(values.name, values.city, values.email)
-// sukuriam objekta ir jam priskiriame formos savybes
-//             const formData = new FormData()
-//             formData.append("name", values.name);
-//             formData.append('city', values.city);
-//             formData.append('email', values.email);
-//             console.log(formData)
-
-            axios({
-                method: 'post',
-                url: '/api/addinfo',
-                data:{name:'muu'}}).then((res) => {
-
-                this.setState({message: res.data.message});
-                console.log(res.data)
-// issitraukaim data is response ir siunciame i reduceri gauta response
-//                 const {name, city, email, _id} = res.data;
-//                 this.props.addPerson({name, city, email, _id});
+            const {name, email, city} = this.state.tempItem;
+            axios.post('/api/addInfo', {name, city, email});
+            this.setState({
+                users: [...this.state.users, {name, city, email}]
             })
         };
 
     render(){
 
-        const users = this.props.users.map ((item, i )=>{
-            return <div key={i}>{item.name}    {item.city}     {item.email}</div>
+        const users = this.state.users.map ((item, i )=>{
+            return <div key={i}>
+                <table>
+                <tr><td>{item.name }</td><td>{item.city}</td><td>{item.email}</td></tr>
+            </table>
+            </div>
         });
 
         return(

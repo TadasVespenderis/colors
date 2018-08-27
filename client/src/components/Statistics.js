@@ -6,7 +6,14 @@ class Statistics extends React.Component{
     render(){
         // {console.log(this.props.stats)}
        const statistics = this.props.stats.map((item, i )=>{
-           return <div className="stat" key={i} style={{backgroundColor: item.color, height: 35*item.level +'px'}}>Level: {item.level}</div>
+           if(item.maxLevel === 0){
+               return null
+           }else {
+               return <div className="stat" key={i} style={{
+                   backgroundColor: item.color,
+                   height: 35 * item.maxLevel + 'px'
+               }}>Level: {item.maxLevel}</div>
+           }
         });
 
         return(

@@ -8,6 +8,18 @@
 }
 .login-fetch{
   margin-top: 50px;
-  margin-right: 450px;
   font-size: 20px;
+  list-style: none;
+  table{
+    margin-left: 400px;
+  }
+  td{
+    //border: 1px solid black;
+    width: 230px;
+  }
+  tr{
+
+    height: 25px;
+  }
+
 }

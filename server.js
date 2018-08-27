@@ -1,3 +1,5 @@
+
+
 const express = require ('express');
 const app = express();
 const bodyParser = require('body-parser');
@@ -10,7 +12,7 @@ const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 
 //prisijungimas
-mongoose.connect('mongodb://admin:admin123@ds139341.mlab.com:39341/colors');
+mongoose.connect('mongodb://admin:admin123@ds139341.mlab.com:39341/colors', { useNewUrlParser: true } );
 mongoose.connection
     .once('open', ()=>console.log('connected to DB'))
     .on ('error', (e)=>console.log(e));
@@ -26,17 +28,17 @@ app.get('/api/login', (req, res)=>{
     })
 });
 
-app.post('/api/addinfo', async (req, res)=>{
-    console.log('server 28  ' + req.data)
+app.post('/api/addInfo', async (req, res)=>{
+    console.log(req.body)
     try {
 
         // naujas irasas i DB
-        // const info = new Info({
-        //     name: req.body.name,
-        //     city: req.body.city,
-        //     email: req.body.email
-        // });
-        // await info.save();
+        const info = new Info({
+            name: req.body.name,
+            city: req.body.city,
+            email: req.body.email
+        });
+        await info.save();
         res.send({message: 'new Person saved'});
     }catch (err){
         console.log(err);
@@ -44,6 +46,16 @@ app.post('/api/addinfo', async (req, res)=>{
     };
 
 });
+
+app.get('/api/users', async (req, res)=>{
+    const users = await Info.find();
+    res.json(users)
+
+    //arba const users = Info.find().then ((data)=> {
+    // res.json(users)
+    // })
+
+})
 
 const port = process.env.PORT || 9000;
 
